@@ -4,15 +4,6 @@
 // var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // var specialArray = ["+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^", "~", "*", "?"];
 
-const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
-const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
-  arrayFromLowToHigh(58, 64)
-).concat(
-  arrayFromLowToHigh(91, 96)
-).concat(
-  arrayFromLowToHigh(123, 126)
-)
-
 
 
 var generateBtn = document.querySelector("#generate");
@@ -36,7 +27,7 @@ function myFunction() {
     alert("User cancelled the prompt.")
   } else {
     console.log(length)
-    var lowerCase = confirm("Do you want lower case letters?");
+    var lowerCase = confirm("Do you want to add lower case letters?");
     if (lowerCase == true) {
       var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     }
@@ -46,7 +37,7 @@ function myFunction() {
     console.log(lowerCaseArray)
     console.log(lowerCase)
 
-    var upperCase = confirm("Do you want upper case letters?");
+    var upperCase = confirm("Do you want to add upper case letters?");
     if (upperCase == true) {
       var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     }
@@ -54,7 +45,7 @@ function myFunction() {
       var upperCaseArray = [];
     }
 
-    var numeric = confirm("Do you want numeric characters?");
+    var numeric = confirm("Do you want to add numeric characters?");
     if (numeric == true) {
       var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     }
@@ -62,7 +53,7 @@ function myFunction() {
       var numericArray = [];
     }
 
-    var special = confirm("Do you want special characters?");
+    var special = confirm("Do you want to add special characters?");
     if (special == true) {
       var specialArray = ["+", "-", "&", "!", "^", "~", "*", "?"];
     }
@@ -70,8 +61,25 @@ function myFunction() {
       var specialArray = [];
     }
     var passwordOptions = lowerCaseArray.concat(upperCaseArray, numericArray, specialArray);
-    console.log(passwordOptions)
+
+    console.log(passwordOptions);
+
+    var passwordCharacters = []
+    for (let i = 0; i < length; i++) {
+      const characterCode = passwordOptions[Math.floor(Math.random() * passwordOptions.length)]
+      console.log(characterCode);
+      passwordCharacters.push(characterCode)
+      console.log(passwordCharacters);
+    }
+    // console.log(passwordCharacters);
+    // return passwordCharacters.join('')
+   
+    
+
   }
+
+  // return passwordCharacters.join('')
+  
 }
 
 // console.getElementById('includeSymbols')
